@@ -1,0 +1,125 @@
+#claude-copilot-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #d97757;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
+#claude-copilot-panel {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  width: 340px;
+  max-height: 480px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+#claude-copilot-panel .cc-header {
+  background: #1f1f1f;
+  color: white;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+#claude-copilot-panel .cc-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#claude-copilot-panel .cc-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#claude-copilot-panel .cc-chip {
+  font-size: 12px;
+  background: #f2ede7;
+  border: 1px solid #e4dcd2;
+  border-radius: 14px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+#claude-copilot-panel .cc-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  min-height: 160px;
+  max-height: 260px;
+}
+
+#claude-copilot-panel .cc-bubble {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 85%;
+}
+
+#claude-copilot-panel .cc-user {
+  background: #eef2f7;
+  margin-left: auto;
+}
+
+#claude-copilot-panel .cc-assistant {
+  background: #f7f3ee;
+}
+
+#claude-copilot-panel .cc-input-row {
+  display: flex;
+  border-top: 1px solid #eee;
+  padding: 8px;
+  gap: 6px;
+}
+
+#claude-copilot-panel .cc-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+#claude-copilot-panel .cc-send {
+  background: #d97757;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#claude-copilot-panel .cc-disclaimer {
+  font-size: 10px;
+  color: #999;
+  padding: 4px 10px 8px;
+  text-align: center;
+}
