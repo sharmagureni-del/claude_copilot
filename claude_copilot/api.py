@@ -19,13 +19,18 @@ import frappe
 from frappe import _
 
 
-MIDDLEWARE_URL = frappe.conf.get("claude_copilot_middleware_url", "http://localhost:8008/chat")
-
-
 @frappe.whitelist()
 def ask(message, doctype=None, docname=None, route=None):
-    """Called by public/js/claude_copilot.js on every chat turn."""
+    """Called by public/js/claude_copilot_v3.js on every chat turn."""
     import requests
+
+    # Read fresh on every call rather than caching at import time — Frappe's
+    # worker processes are long-lived, so a module-level global set once at
+    # import would keep the value it had the moment the worker first loaded
+    # this file (e.g. the localhost:8008 default, if that happened before
+    # claude_copilot_middleware_url was added to site_config.json), and a
+    # simple "Clear cache" doesn't reimport Python modules or restart workers.
+    middleware_url = frappe.conf.get("claude_copilot_middleware_url", "http://localhost:8008/chat")
 
     user = frappe.session.user
     if user == "Guest":
@@ -46,7 +51,7 @@ def ask(message, doctype=None, docname=None, route=None):
     }
 
     try:
-        resp = requests.post(MIDDLEWARE_URL, json=payload, timeout=30)
+        resp = requests.post(middleware_url, json=payload, timeout=30)
         resp.raise_for_status()
         result = resp.json()
     except Exception as e:
