@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "claude_copilot"
+authors = [
+    { name = "Intelloger", email = "erpnext@intelloger.com"}
+]
+description = "In-app Claude assistant that guides users through the correct ERPNext process on every screen."
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "requests"
+]
+
+[tool.bench.dev-dependencies]
