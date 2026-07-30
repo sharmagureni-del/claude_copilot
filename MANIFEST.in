@@ -1,0 +1,6 @@
+include *.txt
+recursive-include claude_copilot *.css
+recursive-include claude_copilot *.js
+recursive-include claude_copilot *.json
+recursive-include claude_copilot *.md
+recursive-exclude claude_copilot *.pyc
